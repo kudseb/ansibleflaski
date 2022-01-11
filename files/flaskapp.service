@@ -1,0 +1,13 @@
+[Unit]
+Description=My flask app
+After=network-online.target
+
+[Service]
+Type=simple
+User=flaskapp
+ExecStart=/opt/flaskapp/.venv/bin/flask run --host 0.0.0.0 --port 8080
+Restart=always
+WorkingDirectory=/opt/flaskapp
+
+[Install]
+WantedBy=multi-user.target
